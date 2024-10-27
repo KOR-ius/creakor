@@ -226,3 +226,77 @@ footer {
         font-size: 1rem; /* Taille réduite pour les liens de navigation */
     }
 }
+
+/* Formulaire de Contact */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#contact label {
+    font-size: 1.1rem;
+    color: #004d99;
+    font-weight: bold;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact input[type="text"]:focus,
+#contact input[type="email"]:focus,
+#contact textarea:focus {
+    border-color: #0099cc;
+    box-shadow: 0 0 5px rgba(0, 153, 204, 0.3);
+    outline: none;
+}
+
+#contact textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#contact button {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #0099cc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#contact button:hover {
+    background-color: #0077b3;
+}
+
+/* Message de Confirmation du Formulaire */
+#form-response {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#form-response.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+#form-response.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
