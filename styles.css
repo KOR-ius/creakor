@@ -178,20 +178,51 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
+        flex-direction: column; /* Colonne pour les petits écrans */
         gap: 1rem;
     }
 
     header h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Taille réduite pour les tablettes */
     }
 
-    .service-boxes {
-        flex-direction: column;
+    header p {
+        font-size: 1rem; /* Ajuste la taille du texte */
+    }
+
+    .service-box {
+        flex: 1 1 100%; /* Prend toute la largeur sur petits écrans */
+        margin-bottom: 1rem; /* Espacement entre les boîtes de services */
     }
 
     .section-content {
-        padding: 2rem;
+        padding: 2rem; /* Moins de padding sur les petits écrans */
+    }
+
+    h2 {
+        font-size: 2rem; /* Taille réduite pour les titres */
     }
 }
 
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem; /* Taille encore plus petite pour les mobiles */
+    }
+
+    header p {
+        font-size: 0.9rem; /* Ajuste encore la taille du texte */
+    }
+
+    header .btn {
+        padding: 0.8rem 1.5rem; /* Ajuste le padding du bouton */
+        font-size: 0.9rem; /* Ajuste la taille de la police du bouton */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Taille réduite pour les titres */
+    }
+
+    nav ul li a {
+        font-size: 1rem; /* Taille réduite pour les liens de navigation */
+    }
+}
