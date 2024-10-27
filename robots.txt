@@ -1,0 +1,13 @@
+# Robots.txt pour creakor
+
+User-agent: *
+Disallow: /private/
+Disallow: /temp/
+Disallow: /admin/
+
+# Autorise tous les autres accès
+Allow: /
+
+# Indique le chemin vers le sitemap
+Sitemap: https://www.creakor.xyz/sitemap.xml
+

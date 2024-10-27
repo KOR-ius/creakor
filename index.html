@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creakor - Création de Sites Web Professionnels à Prix Réduit</title>
+    <meta name="description" content="creakor offre des services de création de sites web professionnels à des prix extrêmement réduits. Obtenez une présence en ligne sans compromis pour votre entreprise avec des sites modernes et optimisés.">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Données structurées -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "creakor",
+        "url": "https://www.creakor.xyz",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+41 79 896 58 50",
+            "contactType": "Customer Service",
+            "areaServed": "CH",
+            "availableLanguage": "French"
+        }
+    }
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>Création de Sites Web Professionnels</h1>
+        <p>Votre entreprise en ligne, à un prix imbattable.</p>
+        <a href="#services" class="btn">Découvrez Nos Services</a>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#about">À Propos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="about">
+        <div class="section-content">
+            <h2>À Propos</h2>
+            <p>Chez <strong>creakor</strong>, nous sommes dédiés à rendre votre entreprise visible en ligne sans vous ruiner. Nous créons des sites web modernes, élégants et optimisés pour les petites entreprises.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-content">
+            <h2>Nos Services</h2>
+            <div class="service-boxes">
+                <div class="service-box">
+                    <h3>Site Vitrine</h3>
+                    <p>Présentez vos services et attirez de nouveaux clients avec un site vitrine élégant et efficace.</p>
+                </div>
+                <div class="service-box">
+                    <h3>Site E-commerce</h3>
+                    <p>Développez vos ventes en ligne avec une boutique personnalisée et simple à gérer.</p>
+                </div>
+                <div class="service-box">
+                    <h3>SEO de Base</h3>
+                    <p>Optimisation de votre site pour être bien référencé sur les moteurs de recherche.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-content">
+            <h2>Contactez-nous</h2>
+            <p>Vous avez des questions ? Envie de nous confier votre projet ? N'hésitez pas à nous contacter.</p>
+            <p>Email: <a href="mailto:kor@tuta.com">kor@tuta.com</a> | Téléphone: +41 79 896 58 50</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 creakor - Création de Sites Web Professionnels. Tous droits réservés.</p>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const topPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+
