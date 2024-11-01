@@ -21,41 +21,47 @@ body {
 /* Header */
 header {
     background: linear-gradient(135deg, #004d99, #0099cc);
-    color: #fff;
-    padding: 5rem 0;
+    color: #ffffff;
+    padding: 8rem 0; /* Increased padding for dramatic effect */
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .header-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     padding: 2rem;
+    z-index: 2;
 }
 
 header h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    animation: fadeIn 2s ease-in-out;
+    font-size: 4rem; /* Larger heading for impact */
+    font-weight: 700; /* Bold weight for prominence */
+    margin-bottom: 1rem;
+    animation: fadeIn 1.5s ease-in-out;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Larger paragraph for readability */
     margin-bottom: 2rem;
 }
 
 header .btn {
     background: #ffe600;
     color: #004d99;
-    padding: 1rem 2rem;
+    padding: 1.5rem 3rem; /* Generous padding */
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    border-radius: 50px; /* Fully rounded button */
+    font-size: 1.1rem; /* Button font size */
+    transition: background 0.4s ease, transform 0.3s;
 }
 
 header .btn:hover {
     background: #ffcc00;
+    transform: scale(1.05); /* Slight scaling on hover */
 }
 
 /* Navigation */
@@ -67,14 +73,14 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2rem; /* Keep original spacing */
     padding: 1rem;
     background-color: #004d99;
     border-radius: 8px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.2rem;
     padding: 0.5rem;
@@ -93,20 +99,21 @@ main {
 .section-content {
     max-width: 900px;
     margin: 4rem auto;
-    padding: 3rem;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 4rem; /* Increased padding for comfort */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow for elevation */
     animation: fadeInUp 1s ease-out;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Larger heading */
     color: #004d99;
     margin-bottom: 1.5rem;
-    border-bottom: 3px solid #004d99;
+    border-bottom: 4px solid #004d99;
     padding-bottom: 0.5rem;
     display: inline-block;
+    letter-spacing: 1px; /* Slight letter-spacing for elegance */
 }
 
 /* Services Section */
@@ -120,38 +127,39 @@ h2 {
 
 .service-box {
     flex: 1;
-    min-width: 250px;
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    min-width: 280px;
+    background-color: #f9f9f9; /* Keeping original colors */
+    padding: 3rem; /* More padding */
+    border-radius: 12px; /* Softer edges */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     margin-top: 1rem;
 }
 
 .service-box h3 {
     color: #004d99;
-    font-size: 1.8rem;
+    font-size: 2rem; /* Larger font for service titles */
     margin-bottom: 1rem;
 }
 
 .service-box p {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Slightly larger for readability */
     color: #555;
 }
 
 .service-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px); /* More pronounced hover effect */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Shadow enhancement */
 }
 
 /* Footer */
 footer {
     background-color: #004d99;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
-    padding: 2rem 0;
-    font-size: 1rem;
+    padding: 3rem 0; /* More padding for footer */
+    font-size: 1.1rem; /* Slightly larger footer text */
 }
 
 /* Animations */
@@ -178,51 +186,51 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* Colonne pour les petits écrans */
-        gap: 1rem;
+        flex-direction: column; /* Column layout for small screens */
+        gap: 1.5rem;
     }
 
     header h1 {
-        font-size: 2.5rem; /* Taille réduite pour les tablettes */
+        font-size: 3rem; /* Responsive heading size */
     }
 
     header p {
-        font-size: 1rem; /* Ajuste la taille du texte */
+        font-size: 1.1rem; /* Responsive paragraph size */
     }
 
     .service-box {
-        flex: 1 1 100%; /* Prend toute la largeur sur petits écrans */
-        margin-bottom: 1rem; /* Espacement entre les boîtes de services */
+        flex: 1 1 100%; /* Full width on small screens */
+        margin-bottom: 1rem; /* Spacing between service boxes */
     }
 
     .section-content {
-        padding: 2rem; /* Moins de padding sur les petits écrans */
+        padding: 3rem; /* Less padding on small screens */
     }
 
     h2 {
-        font-size: 2rem; /* Taille réduite pour les titres */
+        font-size: 2.5rem; /* Responsive heading size */
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 2rem; /* Taille encore plus petite pour les mobiles */
+        font-size: 2.5rem; /* Smaller size for mobiles */
     }
 
     header p {
-        font-size: 0.9rem; /* Ajuste encore la taille du texte */
+        font-size: 0.9rem; /* Adjust text size */
     }
 
     header .btn {
-        padding: 0.8rem 1.5rem; /* Ajuste le padding du bouton */
-        font-size: 0.9rem; /* Ajuste la taille de la police du bouton */
+        padding: 0.8rem 1.5rem; /* Adjust button padding */
+        font-size: 0.9rem; /* Adjust button font size */
     }
 
     h2 {
-        font-size: 1.8rem; /* Taille réduite pour les titres */
+        font-size: 1.8rem; /* Reduced size for headings */
     }
 
     nav ul li a {
-        font-size: 1rem; /* Taille réduite pour les liens de navigation */
+        font-size: 1rem; /* Reduced size for navigation links */
     }
 }
