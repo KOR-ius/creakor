@@ -13,34 +13,46 @@ html {
 /* Body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff; /* Fond blanc éclatant */
-    color: #111; /* Texte en gris très foncé pour plus de lisibilité */
+    background-color: #fff;
+    color: #111;
     line-height: 1.7;
 }
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #000, #333); /* Dégradé fort de noir à gris foncé */
+    background: url('banner.jpg') center/cover no-repeat;
     color: #fff;
-    padding: 8rem 0; /* Augmenter le padding pour un effet grandiose */
+    padding: 8rem 0;
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .header-container {
     max-width: 900px;
     margin: auto;
     padding: 2rem;
+    position: relative;
     z-index: 2;
 }
 
 header h1 {
-    font-size: 4.5rem; /* Taille de texte imposante */
+    font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    animation: fadeIn 1s ease-in-out, slideUp 1s ease-out; /* Animation d'apparition et glissement */
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Ombre marquée pour améliorer la visibilité */
+    animation: fadeIn 1s ease-in-out, slideUp 1s ease-out;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 header p {
@@ -50,50 +62,114 @@ header p {
 
 header .btn {
     background: #fff;
-    color: #111; /* Texte en noir pour contraste avec le fond blanc */
+    color: #111;
     padding: 1.5rem 3rem;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
     font-size: 1.2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombre douce pour l'effet 3D */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    animation: pulse 1.5s infinite alternate; /* Animation de pulsation pour attirer l'attention */
+    animation: pulse 1.5s infinite alternate;
 }
 
 header .btn:hover {
-    background-color: #111; /* Fond noir au survol */
-    color: #fff; /* Texte en blanc au survol */
-    transform: scale(1.1); /* Légère augmentation de taille */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Ombre plus marquée au survol */
+    background-color: #111;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Navigation */
 nav {
     margin: 2rem 0;
+    padding: 1rem 0;
+    background: linear-gradient(135deg, #333, #000); /* Gradient unique pour démarquer la barre */
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s ease; /* Pour transition fluide */
+}
+
+nav.sticky-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #333, #000); /* Gradient pour la barre sticky */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+nav.sticky-nav.hidden {
+    transform: translateY(-100%); /* Cache la barre lors du défilement vers le bas */
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
-    background-color: #111; /* Fond très foncé */
-    border-radius: 8px;
+    gap: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+    overflow: hidden; /* Pour masquer les animations sortantes */
 }
 
 nav ul li a {
     color: #fff;
+    font-size: 1.3rem;
     text-decoration: none;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+    display: inline-block;
 }
 
-nav ul li a:hover {
-    color: #f5a623; /* Couleur vive (jaune/orange) au survol */
-    transform: translateY(-5px); /* Légère animation au survol */
+nav ul li a::before, nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #f5a623; /* Ligne animée avec couleur vive */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+nav ul li a::after {
+    content: attr(data-hover); /* Montre un texte supplémentaire au survol */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    color: #f5a623;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    nav ul li a {
+        font-size: 1.2rem;
+    }
 }
 
 /* Main Section */
@@ -107,23 +183,23 @@ main {
     padding: 4rem;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
     animation: fadeInUp 1s ease-out;
 }
 
 h2 {
     font-size: 3rem;
-    color: #111; /* Gris très foncé */
+    color: #111;
     margin-bottom: 1.5rem;
-    border-bottom: 4px solid #111; /* Ligne sous le titre pour plus de structure */
+    border-bottom: 4px solid #111;
     padding-bottom: 0.5rem;
     display: inline-block;
     letter-spacing: 1px;
-    transition: color 0.3s ease; /* Transition de couleur au survol */
+    transition: color 0.3s ease;
 }
 
 h2:hover {
-    color: #f5a623; /* Changer la couleur du titre au survol */
+    color: #f5a623;
 }
 
 /* Services Section */
@@ -138,7 +214,7 @@ h2:hover {
 .service-box {
     flex: 1;
     min-width: 280px;
-    background-color: #f9f9f9; /* Gris clair */
+    background-color: #f9f9f9;
     padding: 3rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -148,24 +224,24 @@ h2:hover {
 }
 
 .service-box h3 {
-    color: #111; /* Gris foncé pour les titres */
+    color: #111;
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 .service-box p {
     font-size: 1.2rem;
-    color: #666; /* Gris clair pour le texte */
+    color: #666;
 }
 
 .service-box:hover {
-    transform: translateY(-10px); /* Effet de levée */
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Ombre plus marquée */
+    transform: translateY(-10px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
 footer {
-    background-color: #111; /* Fond noir pour plus de contraste */
+    background-color: #111;
     color: #fff;
     text-align: center;
     padding: 3rem 0;
