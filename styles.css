@@ -136,7 +136,7 @@ nav ul li a::before, nav ul li a::after {
     height: 2px;
     bottom: 0;
     left: 50%;
-    background-color: #f5a623; /* Ligne animée avec couleur vive */
+    background-color: #1D4E89; /* Ligne animée avec couleur vive */
     transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -152,7 +152,7 @@ nav ul li a::after {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 0.8rem;
-    color: #f5a623;
+    color: #1D4E89;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -199,7 +199,7 @@ h2 {
 }
 
 h2:hover {
-    color: #f5a623;
+    color: #1D4E89;
 }
 
 /* Services Section */
