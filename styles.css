@@ -1,3 +1,16 @@
+/* Root Variables */
+:root {
+    --primary-color: #FF6347;
+    --secondary-color: #222222;
+    --accent-color: #ffa500;
+    --bg-light: #f9f9f9;
+    --bg-dark: #1e1e1e;
+    --font-family: 'Poppins', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.7;
+    --transition-duration: 0.3s;
+}
+
 /* Reset */
 * {
     margin: 0;
@@ -5,22 +18,23 @@
     box-sizing: border-box;
 }
 
-/* Smooth scrolling */
 html {
+    font-size: 100%;
     scroll-behavior: smooth;
 }
 
-/* Body */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fff;
-    color: #111;
-    line-height: 1.7;
+    font-family: var(--font-family);
+    background-color: var(--bg-light);
+    color: var(--secondary-color);
+    line-height: var(--line-height-base);
+    font-size: var(--font-size-base);
 }
 
 /* Header */
 header {
     background: url('banner.jpg') center/cover no-repeat;
+    background-attachment: fixed;
     color: #fff;
     padding: 8rem 0;
     text-align: center;
@@ -40,7 +54,7 @@ header::before {
 }
 
 .header-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: auto;
     padding: 2rem;
     position: relative;
@@ -51,8 +65,6 @@ header h1 {
     font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    animation: fadeIn 1s ease-in-out, slideUp 1s ease-out;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 header p {
@@ -61,274 +73,134 @@ header p {
 }
 
 header .btn {
-    background: #fff;
-    color: #111;
+    background: var(--primary-color);
+    color: #fff;
     padding: 1.5rem 3rem;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
     font-size: 1.2rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    animation: pulse 1.5s infinite alternate;
+    transition: transform var(--transition-duration), background-color var(--transition-duration), box-shadow var(--transition-duration);
 }
 
 header .btn:hover {
-    background-color: #111;
-    color: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    background: var(--accent-color);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
 }
 
 /* Navigation */
 nav {
-    margin: 2rem 0;
-    padding: 1rem 0;
-    background: linear-gradient(135deg, #333, #000); /* Gradient unique pour démarquer la barre */
-    position: relative;
-    z-index: 10;
-    transition: transform 0.3s ease; /* Pour transition fluide */
-}
-
-nav.sticky-nav {
-    position: fixed;
+    background: var(--bg-dark);
+    position: sticky;
     top: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #333, #000); /* Gradient pour la barre sticky */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 10;
-}
-
-nav.sticky-nav.hidden {
-    transform: translateY(-100%); /* Cache la barre lors du défilement vers le bas */
+    padding: 1rem 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
-    list-style: none;
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    position: relative;
-    overflow: hidden; /* Pour masquer les animations sortantes */
+    gap: 2rem;
 }
 
 nav ul li a {
     color: #fff;
-    font-size: 1.3rem;
     text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 1.2rem;
     padding: 0.5rem 1rem;
     position: relative;
     transition: color 0.3s ease;
-    display: inline-block;
 }
 
-nav ul li a::before, nav ul li a::after {
-    content: "";
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+nav ul li a::after {
+    content: '';
     position: absolute;
-    width: 0%;
-    height: 2px;
     bottom: 0;
     left: 50%;
-    background-color: #1D4E89; /* Ligne animée avec couleur vive */
-    transition: width 0.3s ease, left 0.3s ease;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s, left 0.3s;
 }
 
-nav ul li a:hover::before {
+nav ul li a:hover::after {
     width: 100%;
     left: 0;
 }
 
-nav ul li a::after {
-    content: attr(data-hover); /* Montre un texte supplémentaire au survol */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.8rem;
-    color: #1D4E89;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-nav ul li a:hover::after {
-    opacity: 1;
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    nav ul li a {
-        font-size: 1.2rem;
-    }
-}
-
 /* Main Section */
 main {
-    margin: 4rem 0;
+    padding: 4rem 2rem;
 }
 
-.section-content {
-    max-width: 900px;
-    margin: 4rem auto;
+/* Section Styles */
+.section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 4rem;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 1s ease-out;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    font-size: 3rem;
-    color: #111;
-    margin-bottom: 1.5rem;
-    border-bottom: 4px solid #111;
-    padding-bottom: 0.5rem;
-    display: inline-block;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-h2:hover {
-    color: #1D4E89;
-}
-
-/* Services Section */
-.service-boxes {
-    display: flex;
+/* Service Cards */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-items: center;
 }
 
-.service-box {
-    flex: 1;
-    min-width: 280px;
-    background-color: #f9f9f9;
-    padding: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.service-card {
+    background: var(--bg-light);
+    padding: 2rem;
     text-align: center;
-    margin-top: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-box h3 {
-    color: #111;
-    font-size: 2rem;
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.service-box p {
-    font-size: 1.2rem;
-    color: #666;
-}
-
-.service-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+.service-card p {
+    color: var(--secondary-color);
+    font-size: 1rem;
 }
 
 /* Footer */
 footer {
-    background-color: #111;
+    background: var(--bg-dark);
     color: #fff;
-    text-align: center;
     padding: 3rem 0;
-    font-size: 1.1rem;
+    text-align: center;
+    font-size: 1rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    header h1 {
-        font-size: 3rem;
-    }
-
-    header p {
-        font-size: 1.1rem;
-    }
-
-    .service-box {
-        flex: 1 1 100%;
-        margin-bottom: 1rem;
-    }
-
-    .section-content {
-        padding: 3rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 2.5rem;
-    }
-
-    header p {
-        font-size: 0.9rem;
-    }
-
-    header .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-    }
+footer a:hover {
+    text-decoration: underline;
 }
