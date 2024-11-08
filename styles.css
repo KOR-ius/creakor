@@ -2,6 +2,7 @@
 :root {
     --primary-color: #FF6347;
     --secondary-color: #222222;
+    --third-color: #051e85;
     --accent-color: #ffa500;
     --bg-light: #f9f9f9;
     --bg-dark: #1e1e1e;
@@ -203,4 +204,72 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Section "Notre Méthode" */
+#method {
+    background-color: var(--bg-light);
+    padding: 60px 0; /* Augmenter l'espace autour de la section */
+    text-align: center;
+}
+
+#method .section-content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem; /* Espacement plus grand entre les éléments */
+}
+
+#method h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.method-step {
+    background-color: #fff;
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */
+    margin: 35px 0; /* Marge augmentée autour de chaque étape */
+    padding: 40px; /* Padding plus grand pour chaque étape */
+    transition: all 0.3s ease;
+    text-align: left;
+    flex: 1 1 45%;
+}
+
+.method-step h3 {
+    font-size: 1.8rem;
+    color: var(--third-color);
+    margin-bottom: 20px; /* Espacement plus grand sous le titre */
+    font-weight: 700;
+}
+
+.method-step p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    line-height: 1.7; /* Espacement entre les lignes plus important */
+    margin-bottom: 20px; /* Marge plus grande sous le texte */
+}
+
+.method-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    #method .section-content {
+        width: 90%;
+        flex-direction: column; /* Affichage en colonne sur petits écrans */
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .method-step {
+        width: 100%;
+        margin: 20px 0;
+    }
 }
