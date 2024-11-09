@@ -163,7 +163,7 @@ nav .logo a {
 
 /* Header */
 header {
-    background: url('banner.jpg') center/cover no-repeat;
+    background: url('banner.webp') center/cover no-repeat;
     background-attachment: fixed;
     color: #fff;
     padding: 10rem 3rem;
